@@ -1,0 +1,23 @@
+{
+  "name": "Repair",
+  "description": "泊地修理",
+  "version": "制杖版",
+  "main": "index.cjsx",
+  "dependencies": {
+    "i18n": "^0.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ayaphis/plugin-repair.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ayaphis/plugin-repair/issues"
+  },
+  "homepage": "https://github.com/Ayaphis/plugin-repair/#readme"
+}
