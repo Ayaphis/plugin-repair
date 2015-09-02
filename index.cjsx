@@ -63,7 +63,7 @@ module.exports =
           if _slotitems[itemId].api_slotitem_id is repairItem
             akashiCapacity += 1;
         console.log akashiCapacity
-        for i in [1..akashiCapacity]
+        for i in [0..akashiCapacity]
           if fleet[i] isnt -1
             if _ships[fleet[i]].api_nowhp isnt _ships[fleet[i]].api_maxhp
               if _ships[fleet[i]].api_nowhp*4 // _ships[fleet[i]].api_maxhp > 2
