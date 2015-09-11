@@ -66,8 +66,9 @@ module.exports =
         for i in [0..akashiCapacity]
           if fleet[i] isnt -1
             if _ships[fleet[i]].api_nowhp isnt _ships[fleet[i]].api_maxhp
-              if _ships[fleet[i]].api_nowhp*4 // _ships[fleet[i]].api_maxhp > 2
-                return true
+              if (_ships[fleet[i]].api_nowhp*4 / _ships[fleet[i]].api_maxhp) > 2 ##
+                if _ships[] 
+                  return true
       return false
 
     isInRepair : (_shipId) ->
