@@ -66,8 +66,8 @@ module.exports =
         for i in [0..akashiCapacity]
           if fleet[i] isnt -1
             if _ships[fleet[i]].api_nowhp isnt _ships[fleet[i]].api_maxhp
-              if (_ships[fleet[i]].api_nowhp*4 / _ships[fleet[i]].api_maxhp) > 2 ##
-                if not fleet[i] in window._ndocks
+              if (_ships[fleet[i]].api_nowhp*2 > _ships[fleet[i]].api_maxhp)  ##
+                if not (fleet[i] in window._ndocks)
                   return true
       return false
 
