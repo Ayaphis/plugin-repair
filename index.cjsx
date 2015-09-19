@@ -40,7 +40,7 @@ module.exports =
   author: 'Ayaphis'
   link: 'https://github.com/Ayaphis'
   description: '泊地修理'
-  version: '制杖版'
+  version: '1.2.9'
   reactClass: React.createClass
     getInitialState: ->
       notified: Object.clone initNotified
@@ -54,19 +54,21 @@ module.exports =
       return false
     isInRepair: (fleet) ->
       {_slotitems, _ships, $ships} = window
-      if fleet[0] isnt -1 and $ships[_ships[fleet[0]].api_ship_id].api_stype is workShip and (_ships[fleet[0]].api_nowhp * 4 // _ships[fleet[0]].api_maxhp) > 2
-        akashiCapacity = 1
-        for itemId in _ships[fleet[0]].api_slot #TODO, correct name
-          continue if itemId == -1
-          if _slotitems[itemId].api_slotitem_id is repairItem
-            akashiCapacity += 1
-        console.log akashiCapacity
-        for i in [0 .. akashiCapacity]
-          if fleet[i] isnt -1
-            if _ships[fleet[i]].api_nowhp isnt _ships[fleet[i]].api_maxhp
-              if (_ships[fleet[i]].api_nowhp * 2 > _ships[fleet[i]].api_maxhp)  ##
-                if not (fleet[i] in window._ndocks)
-                  return true
+      if fleet[0] isnt -1 
+        if $ships[_ships[fleet[0]].api_ship_id].api_stype is workShip 
+          if (_ships[fleet[0]].api_nowhp * 2 > _ships[fleet[0]].api_maxhp)
+            akashiCapacity = 1
+            for itemId in _ships[fleet[0]].api_slot #TODO, correct name
+              continue if itemId == -1
+              if _slotitems[itemId].api_slotitem_id is repairItem
+                akashiCapacity += 1
+            #console.log akashiCapacity
+            for i in [0 .. akashiCapacity]
+              if fleet[i] isnt -1
+                if _ships[fleet[i]].api_nowhp isnt _ships[fleet[i]].api_maxhp
+                  if (_ships[fleet[i]].api_nowhp * 2 > _ships[fleet[i]].api_maxhp)  ##
+                    if not (fleet[i] in window._ndocks)
+                      return true
       return false
     handleResponse: (e) ->
       {method, path, body, postBody} = e.detail
