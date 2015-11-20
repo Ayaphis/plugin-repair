@@ -198,9 +198,9 @@ module.exports =
         for ship in @state.fleets[i].ships when ship.maxHp isnt ship.hp
           step = Math.ceil(ship.repairTime / ( ship.maxHp - ship.hp))
           idx = 1
-          while (step * idx) < endTime
-            if (step * idx) > startTime
-              timeCheckList.push step * idx
+          while (step * idx + delayTime) < endTime
+            if (step * idx + delayTime) > startTime
+              timeCheckList.push step * idx + delayTime
             idx++
         @fleets[i].maxEfficiency = -1
         @fleets[i].maxTime = 0
@@ -221,9 +221,10 @@ module.exports =
       @bindNode()
       @initFleetsArg()
     updateCount: ->
+      nowTime = (new Date).getTime()
       {notified, fleets} = @state
       for fleet, i in fleets when fleet.inRepair
-          @fleets[i].span++
+          @fleets[i].span = (nowTime - @state.fleets[i].startTime) // 1000
           if @fleets[i].span > @fleets[i].maxTime + delayTime
             @initFleetsArg()
           @fleets[i].spentNode?.innerHTML = resolveTime @fleets[i].span
