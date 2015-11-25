@@ -78,7 +78,7 @@ module.exports =
   author: 'Ayaphis'
   link: 'https://github.com/Ayaphis'
   description: '泊地修理'
-  version: '制杖版'
+  version: '1.5.0'
   reactClass: React.createClass
     fleets: Object.clone initFleets
     getInitialState: ->
