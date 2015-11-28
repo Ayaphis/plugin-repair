@@ -1,11 +1,8 @@
 {
-  "name": "Repair",
+  "name": "poi-plugin-repair",
   "description": "泊地修理",
   "version": "1.5.0",
   "main": "index.cjsx",
-  "dependencies": {
-    "i18n": "^0.5.0"
-  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
